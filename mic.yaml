@@ -1,0 +1,31 @@
+step: 1
+name: smoke-detection
+docker_image: smoke-detection:latest
+framework: !!python/object/apply:mic.constants.Framework
+- !!python/tuple
+  - general
+  - mintproject/generic:latest
+container_name: smoke-detection_cff4df7b
+parameters:
+  siteID:
+    name: siteID
+    default_value: 0
+    type: int
+    description: Input parameter used to provide the hpwren camera site
+  cameraType:
+    name: cameraType
+    default_value: 0
+    type: int
+    description: Input parameter used to provide the hpwren camera type
+inputs:
+  src_zip:
+    path: src.zip
+    format: zip
+code_files: {}
+outputs:
+  hpwren-image-used-for-inference_jpeg:
+    path: hpwren-image-used-for-inference.jpeg
+    format: jpeg
+  model-inference-results_json:
+    path: model-inference-results.json
+    format: json

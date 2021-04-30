@@ -1,0 +1,31 @@
+#!/bin/bash
+set +x
+set -e
+. .colors.sh
+
+BASEDIR=$PWD
+. $BASEDIR/io.sh 1 2 2 "$@"
+CURDIR=`pwd`
+## INPUTS VARIABLES
+src_zip=${INPUTS1}
+
+
+## PARAMETERS VARIABLES
+siteID=${PARAMS1}
+cameraType=${PARAMS2}
+
+
+set -xe
+
+####### WRITE YOUR INVOCATION LINE AFTER THIS COMMENT
+
+    
+pushd .
+python3 /src/main.py --cameraType ${cameraType} --siteID ${siteID}
+popd
+
+set +x
+echo -e "$(c G)[success] The model has exited with code SUCCESS"
+####### WRITE YOUR INVOCATION LINE BEFORE THIS COMMENT
+cd $BASEDIR
+. $BASEDIR/output.sh

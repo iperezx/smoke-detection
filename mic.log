@@ -1,0 +1,16 @@
+mic   commands.py        ERROR    Run failed: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/click/termui.py", line 200, in confirm
+    value = visible_prompt_func("").lower().strip()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/mic/click_encapsulate/commands.py", line 621, in run
+    info_start_run(execution_dir.relative_to(mic_config_path.parent.parent))
+  File "/usr/local/lib/python3.6/dist-packages/mic/cli_docs.py", line 59, in info_start_run
+    "Do you want to continue", default=True):
+  File "/usr/local/lib/python3.6/dist-packages/click/termui.py", line 202, in confirm
+    raise Abort()
+click.exceptions.Abort
